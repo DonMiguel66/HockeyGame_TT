@@ -19,7 +19,7 @@ public class BidController
 
     private void IncreaseBid()
     {
-        if (_creditController.CreditsCount <= _currentRate)
+        if (_creditController.CurrentCreditsCount <= _currentRate)
         {
             //Debug.Log("Credits = 0");
             return;
@@ -27,7 +27,7 @@ public class BidController
         _currentRate = CurrentRate + _rateStep;
         //_creditController.ChangeCredits(-_rateStep);
         _rateView.ChangeRateCurrentNum(CurrentRate);
-        Debug.Log("Increase " + CurrentRate);
+        //Debug.Log("Increase " + CurrentRate);
     }
 
     private void DecreaseBid()
@@ -40,12 +40,12 @@ public class BidController
         }
         //_creditController.ChangeCredits(_rateStep);
         _rateView.ChangeRateCurrentNum(CurrentRate);
-        Debug.Log("Decrease " + CurrentRate);
+        //Debug.Log("Decrease " + CurrentRate);
     }
 
     public void SetRateToCredit()
     {
-        _currentRate = _creditController.CreditsCount;
+        _currentRate = _creditController.CurrentCreditsCount;
         _rateView.ChangeRateCurrentNum(_currentRate);
     }
 

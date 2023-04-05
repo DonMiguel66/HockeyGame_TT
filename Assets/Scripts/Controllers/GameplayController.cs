@@ -3,7 +3,7 @@ using UnityEngine;
 using System;
 using Random = System.Random;
 
-public class GameplayController
+public class GameplayController : IDisposable
 {
     private BidController _bidController;
     private CreditsController _creditsController;
@@ -18,7 +18,7 @@ public class GameplayController
     {
         _gameView = gameView;
         _variantButtonViews = _gameView.VariantButtonViews;
-        Debug.Log(_variantButtonViews.Count);
+        //Debug.Log(_variantButtonViews.Count);
         _creditsCounterView = creditsCounterView;
         _rateView = rateView;
         _creditsController = new CreditsController(_creditsCounterView);
@@ -81,6 +81,8 @@ public class GameplayController
         }
         _gameView.BlockPanels(true);
         CheckCreditsToContinue();
+        _creditsController.SaveTopCredits();
+        Debug.Log($"Current {_creditsController.CurrentCreditsCount} Top{_creditsController.TopCreditsCount}");
     }
 
     private void SetNewGameStep()
@@ -91,7 +93,7 @@ public class GameplayController
         {
             variantButtonView.SetDefault();
         }
-        if (_creditsController.CreditsCount < _bidController.CurrentRate)
+        if (_creditsController.CurrentCreditsCount < _bidController.CurrentRate)
         {
             _bidController.SetRateToCredit();
         }
@@ -115,12 +117,17 @@ public class GameplayController
 
     private void CheckCreditsToContinue()
     {
-        if(_creditsController.CreditsCount == 0)
+        if(_creditsController.CurrentCreditsCount == 0)
         {
             _gameView.BlockPanels(true);
             _gameView.NextRateButton.gameObject.SetActive(false);
             _gameView.PlayButtonView.gameObject.SetActive(false);
             _gameView.RestartButton.gameObject.SetActive(true);
         }
+    }
+
+    public void Dispose()
+    {
+        _creditsController.Dispose();
     }
 }

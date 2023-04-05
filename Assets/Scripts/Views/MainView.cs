@@ -20,8 +20,8 @@ public class MainView : MonoBehaviour
         _gameplayController.InitVariantButtons();
     }
 
-    void Update()
+    private void OnDestroy()
     {
-        
+        _gameplayController.Dispose();
     }
 }

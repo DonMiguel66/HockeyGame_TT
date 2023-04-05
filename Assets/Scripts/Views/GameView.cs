@@ -25,7 +25,7 @@ public class GameView : MonoBehaviour
         if(isBlocked)
         {
             //_blockVariantButtons.SetActive(true);
-            _blockRatesButtons.SetActive(true);
+            _blockRatesButtons.SetActive(false);
             _nextRateButton.gameObject.SetActive(true);
             _playButtonView.gameObject.SetActive(false);
             foreach (var variantButtonView in _variantButtonViews)
@@ -36,7 +36,7 @@ public class GameView : MonoBehaviour
         else
         {
             //_blockVariantButtons.SetActive(false);
-            _blockRatesButtons.SetActive(false);
+            _blockRatesButtons.SetActive(true);
             _nextRateButton.gameObject.SetActive(false);
             _playButtonView.gameObject.SetActive(true);
             foreach (var variantButtonView in _variantButtonViews)
