@@ -16,7 +16,6 @@ public class VariantButtonView : GameButton
 
     private Vector3 _defaultScale;
 
-    public event Action OnComplete;
     protected override void Awake()
     {
         base.Awake();

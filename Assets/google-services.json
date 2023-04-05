@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "472281705969",
+    "project_id": "dvbb-2e9b8",
+    "storage_bucket": "dvbb-2e9b8.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:472281705969:android:245c9a0eb202be656aa850",
+        "android_client_info": {
+          "package_name": "boomsport.bbplay"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "472281705969-rc0l21qhuulfvt51ufq5sslghioltroi.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAMjPzYUpgaXnIqvSfwEl1mOw_ltpN6J8M"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "472281705969-rc0l21qhuulfvt51ufq5sslghioltroi.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
